@@ -41,7 +41,7 @@ export class LoginScreen implements OnInit {
   }
 
   public login(){
-
+    this.router.navigate(['app','home']);
   }
   public recuperarPwd(){
 
