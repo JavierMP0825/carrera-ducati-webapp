@@ -1,0 +1,331 @@
+/* =========================================================
+   PERFIL USUARIO - BASE (mobile-first)
+   ========================================================= */
+
+.perfil {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* Drawer container */
+.perfil__drawer-container {
+  height: 100vh;
+  background: #ffffff;
+}
+
+/* Drawer */
+.perfil__drawer {
+  width: 85vw;
+  max-width: 340px;
+  border-right: 0;
+}
+
+/* Main content */
+.perfil__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+/* Scroll lives here */
+.perfil__body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #ffffff;
+
+  /* Important: ensure blocks stack naturally */
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.perfil__hero {
+  border-top: 1px solid rgba(122, 122, 122, 0.12);
+  border-bottom: 1px solid rgba(122, 122, 122, 0.12);
+  width: 100%;
+  padding: 14px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Image */
+.perfil__hero-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+
+/* Title row */
+.perfil__title-row {
+  width: 100%;
+  max-width: 980px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.perfil__title-line {
+  width: 4px;
+  height: 60px;
+  background: #cd0000;
+  flex: 0 0 auto;
+}
+
+.perfil__title {
+  margin: 0;
+  font-family: Avenir-Bold;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000;
+}
+
+/* =========================================================
+   INNER (centered content)
+   ========================================================= */
+.perfil__inner {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 15px 26px 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================================
+   CARD DE PERFIL
+   - Centrado, blanco, con sombra
+   ========================================================= */
+.perfil__card {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  border: 1px solid rgba(122, 122, 122, 0.12);
+  border-radius: 8px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   FOTO DE PERFIL
+   ========================================================= */
+.perfil__photo-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.perfil__photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #cd0000;
+  display: block;
+}
+
+/* =========================================================
+   FIELDS (datos del usuario)
+   ========================================================= */
+.perfil__field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(122, 122, 122, 0.12);
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+/* Field con 2 columnas (ciudad + estado) */
+.perfil__field--row {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: none;
+  padding: 12px 0;
+}
+
+.perfil__field-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Label */
+.perfil__label {
+  font-family: Avenir-Bold;
+  font-size: 14px;
+  color: #cd0000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Value */
+.perfil__value {
+  font-family: Avenir;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  margin: 0;
+}
+
+/* =========================================================
+   BOTONES DE ACCIÓN
+   ========================================================= */
+.perfil__actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(122, 122, 122, 0.12);
+}
+
+.perfil__btn {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #cd0000;
+  border-radius: 4px;
+  font-family: Avenir-Bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:focus-visible {
+    outline: 2px solid rgba(205, 0, 0, 0.45);
+    outline-offset: 4px;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.perfil__btn--primary {
+  background: #cd0000;
+  color: #ffffff;
+
+  &:hover {
+    background: #b00000;
+    border-color: #b00000;
+  }
+}
+
+.perfil__btn--secondary {
+  background: transparent;
+  color: #cd0000;
+
+  &:hover {
+    background: rgba(205, 0, 0, 0.1);
+  }
+}
+
+/* =========================================================
+   FOOTER (full-bleed like bases)
+   ========================================================= */
+.perfil__footer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 16px;
+}
+
+/* =========================================================
+   RESPONSIVE: tablet+
+   ========================================================= */
+@media (min-width: 768px) {
+  .perfil__drawer {
+    width: 360px;
+  }
+
+  .perfil__hero {
+    padding: 18px 0;
+  }
+
+  .perfil__title {
+    font-size: 22px;
+  }
+
+  .perfil__card {
+    padding: 32px 24px;
+    gap: 20px;
+  }
+
+  .perfil__photo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .perfil__actions {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .perfil__btn {
+    flex: 1;
+  }
+
+  .perfil__field--row {
+    gap: 24px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE: desktop
+   ========================================================= */
+@media (min-width: 992px) {
+  .perfil__inner {
+    max-width: 1040px;
+  }
+
+  .perfil__title-row {
+    max-width: 1040px;
+  }
+
+  .perfil__title {
+    font-size: 24px;
+  }
+
+  .perfil__hero-img {
+    max-width: 520px;
+  }
+
+  .perfil__card {
+    padding: 40px 32px;
+    max-width: 800px;
+  }
+
+  .perfil__photo {
+    width: 160px;
+    height: 160px;
+  }
+
+  .perfil__value {
+    font-size: 17px;
+  }
+}

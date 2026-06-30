@@ -104,10 +104,29 @@ export class RegistroScreen implements OnInit {
     // 2) Sin jQuery: si hay errores, se detiene
     if (Object.keys(this.errors).length > 0) return;
 
-    // 3) Registro
+    // 3) Guardar en localStorage
     this.isLoading = true;
 
+    try {
+      // Guardar datos de usuario en localStorage
+      localStorage.setItem('usuario_registrado', JSON.stringify(this.user));
 
+      // Guardar fecha de registro
+      const fechaRegistro = new Date().toISOString();
+      localStorage.setItem('fecha_registro', fechaRegistro);
+
+      console.log('(Registro) Datos guardados en localStorage');
+
+      // Navegar a perfil del usuario después del registro
+      setTimeout(() => {
+        this.router.navigate(['/app', 'perfil-usuario']);
+      }, 500);
+    } catch (error) {
+      console.error('Error al guardar datos:', error);
+      alert('Error al registrar usuario. Por favor, intenta de nuevo.');
+    } finally {
+      this.isLoading = false;
+    }
   }
 
   public goLogin(): void {

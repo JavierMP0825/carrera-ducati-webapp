@@ -1,0 +1,137 @@
+<!-- Pantalla: Perfil del Usuario -->
+<section class="perfil" aria-label="Perfil del usuario">
+  <!-- Drawer container -->
+  <mat-drawer-container class="perfil__drawer-container" autosize>
+    <!-- DRAWER (Sidebar) -->
+    <mat-drawer #drawer class="perfil__drawer" mode="over" position="start" [opened]="drawerOpen"
+      (closedStart)="drawerOpen = false">
+      <app-left-sidebar [isLogin]="isLogin" (closeSidebar)="closeSidebar()"></app-left-sidebar>
+    </mat-drawer>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <mat-drawer-content class="perfil__content">
+      <!-- Header -->
+      <app-header-app (menuToggle)="toggleSidebar()"></app-header-app>
+
+      <!-- Body -->
+      <main class="perfil__body" role="main">
+        <!-- Encabezado: título -->
+        <section class="perfil__hero" aria-label="Encabezado de perfil">
+          <img src="assets/images/header-img.png" class="perfil__hero-img" alt="Perfil del usuario" loading="eager"
+            fetchpriority="high" decoding="async">
+
+          <div class="perfil__title-row">
+            <span class="perfil__title-line" aria-hidden="true"></span>
+            <h1 class="perfil__title">Mi Perfil</h1>
+          </div>
+        </section>
+
+        <!-- Contenido: datos del perfil -->
+        <section class="perfil__inner" aria-label="Contenido del perfil">
+
+          <!-- Card de Perfil -->
+          <article class="perfil__card" aria-label="Información del usuario">
+
+            <!-- Foto de perfil -->
+            <div class="perfil__photo-wrapper">
+              <img
+                src="../../../assets/images/perfil.png"
+                class="perfil__photo"
+                alt="Foto de perfil de {{ usuario?.first_name }}"
+              >
+            </div>
+
+            <!-- Nombre completo -->
+            <div class="perfil__field">
+              <label class="perfil__label">Nombre Completo</label>
+              <p class="perfil__value">{{ usuario?.first_name }} {{ usuario?.last_name }}</p>
+            </div>
+
+            <!-- Correo electrónico -->
+            <div class="perfil__field">
+              <label class="perfil__label">Correo Electrónico</label>
+              <p class="perfil__value">{{ usuario?.email }}</p>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="perfil__field">
+              <label class="perfil__label">Teléfono</label>
+              <p class="perfil__value">{{ usuario?.telefono }}</p>
+            </div>
+
+            <!-- Ciudad y Estado (misma línea) -->
+            <div class="perfil__field perfil__field--row">
+              <div class="perfil__field-half">
+                <label class="perfil__label">Ciudad</label>
+                <p class="perfil__value">{{ usuario?.ciudad }}</p>
+              </div>
+              <div class="perfil__field-half">
+                <label class="perfil__label">Estado</label>
+                <p class="perfil__value">{{ getEstadoNombre() }}</p>
+              </div>
+            </div>
+
+            <!-- CURP -->
+            <div class="perfil__field">
+              <label class="perfil__label">CURP</label>
+              <p class="perfil__value">{{ usuario?.curp }}</p>
+            </div>
+
+            <!-- RFC -->
+            <div class="perfil__field">
+              <label class="perfil__label">RFC</label>
+              <p class="perfil__value">{{ usuario?.rfc }}</p>
+            </div>
+
+            <!-- Edad -->
+            <div class="perfil__field">
+              <label class="perfil__label">Edad</label>
+              <p class="perfil__value">{{ usuario?.edad }} años</p>
+            </div>
+
+            <!-- Carrera (Grado de Estudio) -->
+            <div class="perfil__field">
+              <label class="perfil__label">Carrera</label>
+              <p class="perfil__value">{{ getGradoEstudios() }}</p>
+            </div>
+
+            <!-- Grado de Estudio -->
+            <div class="perfil__field">
+              <label class="perfil__label">Grado de Estudio</label>
+              <p class="perfil__value">{{ getGradoEstudios() }}</p>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="perfil__actions">
+              <button
+                type="button"
+                class="perfil__btn perfil__btn--primary"
+                (click)="editarPerfil()"
+                aria-label="Editar perfil"
+              >
+                Editar Perfil
+              </button>
+              <button
+                type="button"
+                class="perfil__btn perfil__btn--secondary"
+                (click)="cerrarSesion()"
+                aria-label="Cerrar sesión"
+              >
+                Cerrar Sesión
+              </button>
+            </div>
+
+          </article>
+
+        </section>
+
+        <!-- Footer -->
+        <section class="perfil__footer" aria-label="Pie de página">
+          <app-footer-app></app-footer-app>
+        </section>
+
+      </main>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+</section>
