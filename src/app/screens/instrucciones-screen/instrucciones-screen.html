@@ -1,1 +1,145 @@
-<p>instrucciones-screen works!</p>
+<!-- Pantalla: Instrucciones de la promoción -->
+<section class="instrucciones" aria-label="Instrucciones de la promoción">
+  <!-- Drawer container (igual que Home/Instrucciones) -->
+  <mat-drawer-container class="instrucciones__drawer-container" autosize>
+    <!-- DRAWER (Sidebar) -->
+    <mat-drawer #drawer class="instrucciones__drawer" mode="over" position="start" [opened]="drawerOpen"
+      (closedStart)="drawerOpen = false">
+      <app-left-sidebar [isLogin]="isLogin" (closeSidebar)="closeSidebar()"></app-left-sidebar>
+    </mat-drawer>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <mat-drawer-content class="instrucciones__content">
+      <!-- Header (mismo output que Home/Instrucciones) -->
+      <app-header-app (menuToggle)="toggleSidebar()"></app-header-app>
+
+      <!-- Body -->
+      <main class="instrucciones__body" role="main">
+        <!-- Encabezado: imagen + título -->
+        <section class="instrucciones__hero" aria-label="Encabezado de instrucciones">
+
+          <div class="instrucciones__title-row">
+            <span class="instrucciones__title-line" aria-hidden="true"></span>
+            <h1 class="instrucciones__title">¡HORA DE CORRER!</h1>
+          </div>
+        </section>
+
+        <!-- Contenido: texto de las instrucciones -->
+        <section class="instrucciones__inner" aria-label="Contenido de instrucciones">
+          <!-- Bloque 1 Objetivo-->
+          <article class="instrucciones__legal" aria-label="Paso 1">
+            <p class="instrucciones__legal-titulo">
+              Objetivo
+            </p>
+          </article>
+          <article class="instrucciones__legal" aria-label="Paso 1">
+            <p class="instrucciones__legal-text">
+              Estás a punto de jugar Moto Rider, el juego consiste en conducir una motocicleta a
+              través de un camino con autos, tu misión es esquivarlos durante 120 segundos
+              mientras la velocidad va aumentando.
+            </p>
+          </article>
+
+          <!-- Bloque 2 Puntuacion-->
+          <article class="instrucciones__step" aria-label="Paso 2">
+            <article class="instrucciones__legal" aria-label="Puntuación título">
+              <p class="instrucciones__legal-titulo">
+                Puntuación
+              </p>
+            </article>
+
+            <article class="instrucciones__score-row" aria-label="Encabezado de puntuación">
+              <p class="instrucciones__legal-text instrucciones__legal-text-left">
+                ACCIÓN
+              </p>
+              <p class="instrucciones__legal-text instrucciones__legal-text-right">
+                PUNTUACIÓN
+              </p>
+            </article>
+
+            <article class="instrucciones__score-row" aria-label="Puntuación fila 1">
+              <p class="instrucciones__legal-text instrucciones__legal-text-left">
+                Código redimido
+              </p>
+              <p class="instrucciones__legal-text instrucciones__legal-text-right">
+                1000
+              </p>
+            </article>
+
+            <article class="instrucciones__score-row" aria-label="Puntuación fila 2">
+              <p class="instrucciones__legal-text instrucciones__legal-text-left">
+                Jugar sin chocar de 0 a 30 segundos
+              </p>
+              <p class="instrucciones__legal-text instrucciones__legal-text-right">
+                100
+              </p>
+            </article>
+
+            <article class="instrucciones__score-row" aria-label="Puntuación fila 3">
+              <p class="instrucciones__legal-text instrucciones__legal-text-left">
+                Jugar sin chocar de 31 a 60 segundos
+              </p>
+              <p class="instrucciones__legal-text instrucciones__legal-text-right">
+                200
+              </p>
+            </article>
+
+            <article class="instrucciones__score-row" aria-label="Puntuación fila 4">
+              <p class="instrucciones__legal-text instrucciones__legal-text-left">
+                Jugar sin chocar de 61 a 90 segundos
+              </p>
+              <p class="instrucciones__legal-text instrucciones__legal-text-right">
+                300
+              </p>
+            </article>
+
+            <article class="instrucciones__score-row" aria-label="Puntuación fila 5">
+              <p class="instrucciones__legal-text instrucciones__legal-text-left">
+                Jugar sin chocar de 91 a 120 segundos
+              </p>
+              <p class="instrucciones__legal-text instrucciones__legal-text-right">
+                400
+              </p>
+            </article>
+          </article>
+
+          <!-- Bloque  -->
+          <article class="instrucciones__legal" aria-label="Paso 1">
+            <p class="instrucciones__legal-titulo">
+              Informacion adiccional
+            </p>
+          </article>
+          <article class="instrucciones__legal" aria-label="Paso 1">
+            <p class="instrucciones__legal-text">
+              Tienes dos oportunidades por cada código que redimimas. <br><br>
+              La 1ra oportunidad es entrenamiento y no genera puntos. <br><br>
+              La 2da oportunidad genera puntos, el juego termina si
+              chocas o se termina el tiempo. <br><br>
+              Verifica que tu conexión a Internet sea estable al momento de jugar.
+            </p>
+          </article>
+
+          <!-- Botón jugar -->
+          <div class="acciones">
+            <button mat-flat-button type="button" class="btn-jugar" type="button" (click)="goJuego()"
+              [disabled]="isLoading">
+              @if (!isLoading) {
+                <span class="text-btn">JUGAR AHORA</span>
+              } @else {
+                <span class="text-btn">Procesando…</span>
+              }
+            </button>
+          </div>
+        </section>
+
+
+        <!-- Footer (a borde completo, como Home) -->
+        <section class="instrucciones__footer" aria-label="Pie de página">
+          <app-footer-app></app-footer-app>
+        </section>
+
+      </main>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+</section>

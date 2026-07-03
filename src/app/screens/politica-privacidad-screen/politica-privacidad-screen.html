@@ -1,1 +1,74 @@
-<p>politica-privacidad-screen works!</p>
+<!-- Pantalla: politica de la promoción -->
+<section class="politica" aria-label="politica de la promoción">
+  <!-- Drawer container (igual que Home/politica) -->
+  <mat-drawer-container class="politica__drawer-container" autosize>
+    <!-- DRAWER (Sidebar) -->
+    <mat-drawer #drawer class="politica__drawer" mode="over" position="start" [opened]="drawerOpen"
+      (closedStart)="drawerOpen = false">
+      <app-left-sidebar [isLogin]="isLogin" (closeSidebar)="closeSidebar()"></app-left-sidebar>
+    </mat-drawer>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <mat-drawer-content class="politica__content">
+      <!-- Header (mismo output que Home/politica) -->
+      <app-header-app (menuToggle)="toggleSidebar()"></app-header-app>
+
+      <!-- Body -->
+      <main class="politica__body" role="main">
+        <!-- Encabezado: imagen + título -->
+        <section class="politica__hero" aria-label="Encabezado de politica">
+
+          <div class="politica__title-row">
+            <span class="politica__title-line" aria-hidden="true"></span>
+            <h1 class="politica__title">POLÍTICA DE PRIVACIDAD</h1>
+          </div>
+        </section>
+
+        <!-- Contenido: texto de las politica -->
+        <section class="politica__inner" aria-label="Contenido de politica">
+
+          <article class="politica__legal" aria-label="Paso 1">
+            <p class="politica__legal-text">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+              sed diam nonumy eirmod tempor invidunt ut labore et dolore
+              magna aliquyam erat, sed diam voluptua. At vero eos et
+              accusam et justo duo dolores et ea rebum. <br><br>
+
+              Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+              ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+              sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+              labore et dolore magna aliquyam erat, sed diam voluptua. <br><br>
+
+              At vero eos et accusam et justo duo dolores et ea rebum.
+              Stet clita kasd gubergren, no sea takimata sanctus est. <br><br>
+
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+              sed diam nonumy eirmod tempor invidunt ut labore et dolore
+              magna aliquyam erat, sed diam voluptua. At vero eos et
+              accusam et justo duo dolores et ea rebum. Stet clita
+              kasd gubergren, no sea takimata sanctus est Lorem ipsum
+              dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+              sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+              ut labore et dolore magna aliquyam erat, sed diam voluptua. <br><br>
+
+              At vero eos et accusam et justo duo dolores et ea rebum.
+              Stet clita kasd gubergren, no sea takimata sanctus est
+              Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+              consetetur sadipscing elitr, sed diam nonumy eirmod
+              tempor invidunt ut.
+            </p>
+          </article>
+
+        </section>
+
+
+        <!-- Footer (a borde completo, como Home) -->
+        <section class="politica__footer" aria-label="Pie de página">
+          <app-footer-app></app-footer-app>
+        </section>
+
+      </main>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+</section>
